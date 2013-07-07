@@ -1,9 +1,10 @@
 Farbtle
 =======
 
-A Farbox theme,Inspired by Svbtle.
+A Farbox theme,Inspired by Svbtle. 
 
-很早就想给博客写个主题，不过自从换用[Farbox](http://farbox.com)后因为自带的主题是符合本人口味的简洁风格，加之没什么空余时间，所以这个计划就一直搁置了。现趁着“粽子节”和扁桃体发炎～～码了这么一个主题。
+[Demo](http://sync.sh/)
+
 
 ##为什么叫Farbtle
 
@@ -48,5 +49,3 @@ status:part
 6.请不要修改脚注信息，谢谢。
 
 7.有兴趣的可以下载回去研究。什么协议？留个链接和名字就行。
-
-[GitHub:Farbtle](https://github.com/YCF/Farbtle)
