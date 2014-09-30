@@ -7,12 +7,12 @@
 </head>
 <body>
 	<header id="sidebar">
-		<figure id="avatar">
+		<div id="avatar">
 			<a href="/">
 				<div class="pulse animate">&nbsp;</div>
 				<img class="logo" src="{{ site.avatar }}" alt="{{ site.title }}">
 			</a>
-		</figure>
+		</div>
 			<h1><a href="/">{% if site.configs['title'] %}{{ site.configs['title'] }}{% else %}{{ site.title }}{% endif %}</a></h1>
 		<p class="description">{{ site.description }}</p>
 			<ul>
