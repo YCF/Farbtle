@@ -1,0 +1,56 @@
+html
+	head
+		meta(content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0", name="viewport")
+		meta(content="yes", name="apple-mobile-web-app-capable")
+		meta(content="black", name="apple-mobile-web-app-status-bar-style")
+		meta(content="telephone=no", name="format-detection")
+		meta(name="renderer", content="webkit")
+		title= post.title or site.title
+		+load('/template/basic.scss,/template/style.scss')
+		+load('/template/js/scripts.js')
+	body
+		#sidebar
+			#avatar
+				a(href='/')
+					.border
+						.img_container
+							img(src=site.avatar, alt=site.title)
+			.title
+				a(href='/')= site.title
+			ul
+				li
+					+a_with_selected("/archive", 'Archive')
+				
+				for category in get_data(type='folder', level=1, min_posts_count=1, with_page=False, limit=10)
+					li
+						+a_with_selected("/category/" + category.path, category.title)
+				
+				if has('images')
+					li
+						a(href="/album") Album
+					if not has('posts')
+						+redirect('/album')
+
+				pages = get_data(status='pages', type='post', limit=5, with_page=False, sort='position')
+				for page_p in pages
+					li
+						+a_with_selected("/"+page_p.path, page_p.filename.split('.')[0].title())
+				.clear
+
+			.search-bar
+				input#search-bar(type='text', placeholder="搜索", value=request.args.s, onkeyup="if (event.keyCode == 13) search();")
+
+		#main
+			#banner
+				block banner
+					span="一个程序员的自娱自乐&nbsp;&nbsp;"
+					span.date= now.format('%b,%d %Y')
+					span.sub_info today
+			block content
+			#footer
+				| &copy; 2015 {{ site.title }}
+				| | Coded by <a href="http://sync.sh" target="_blank">YCF</a>
+				| | Inspired by <a href="https://svbtle.com/" target="_blank">Svbtle</a>
+				| | Powered by <a href="https://www.farbox.com" target="_blank">FarBox</a>
+				| | <a href="/template" target="_blank">Clone Theme</a></section>
+
