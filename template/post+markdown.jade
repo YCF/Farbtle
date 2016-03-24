@@ -1,0 +1,22 @@
+extends  base.jade
+block banner
+	h1.title= post.title
+	span.sub_info= post.date.format('%b,%d %Y')
+block content
+	.post
+		.content= post.content
+
+		.other_posts
+			pre_one = get_connected_one(post, position='>')
+			next_one = get_connected_one(post, position='<')
+			if pre_one
+				a(href=pre_one.url, title=pre_one.title, class='pre')= pre_one.title if lang=='zh_cn' else 'Newer'
+			else
+				span.pre.unavailable= '已是最后一篇' if lang=='zh_cn' else 'No More'
+			if next_one
+				a(href=next_one.url, title=next_one.title, class='next')= next_one.title if lang=='zh_cn' else 'Older'
+			elif pre_one
+				span.next.unavailable= '已是最新一篇' if lang=='zh_cn' else 'No More'
+
+
+		include include/comments.jade
